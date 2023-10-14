@@ -1,16 +1,15 @@
 package _03_animals_original;
 
-public class Cat {
-	String name;
-	String furColor;
-	boolean isGirl;
+import _04_animals_inheritance.Animal;
+
+public class Cat extends Animal {
 	
-	Cat(String name, String furColor, boolean isGirl) {
-		this.name=name;
-		this.furColor=furColor;
-		this.isGirl=isGirl;
+	
+	public Cat(String name, String furColor, boolean isGirl) {
+		super(name, furColor, isGirl);
+		// TODO Auto-generated constructor stub
 	}
-	
+
 	public void printName() {
 		System.out.println("My name is "+name);
 	}
