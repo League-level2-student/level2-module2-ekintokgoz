@@ -1,5 +1,6 @@
 package _06_overloading;
 
+import java.awt.Color;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -20,23 +21,58 @@ public class LeagueOptionPane {
 	public static void showMessageDialog(String message) {
 		// 1. Open example.png and make a GUI that looks like that
 		//    The message parameter is what we want to show on our pop-up
-		
-		
+		JFrame frame = new JFrame();
+		frame.setVisible(true);
+		JLabel label = new JLabel(message);
+		label.setIcon(new ImageIcon("src/_06_overloading/league.png"));
+		frame.add(label);
+		frame.pack();
 		// 2. Uncomment the line of code below. It sets the location of our frame to the center of the screen
-		//frame.setLocationRelativeTo(null);
+		frame.setLocationRelativeTo(null);
 	}
 	
 	// 3. Call this method in the Runner class
-	
 
 	// 4. Create another showMessageDialog() method that lets us also choose the Message and Title 
 	//    2 String parameters (one for the message and one for the title)
 	
+	public static void showMessageDialog(String message, String title) {
+		JFrame frame = new JFrame(title);
+		frame.setVisible(true);
+		JLabel label = new JLabel(message);
+		label.setIcon(new ImageIcon("src/_06_overloading/league.png"));
+		frame.add(label);
+		frame.pack();
+		frame.setLocationRelativeTo(null);
+	}
 	// 5. Call this method in the Runner class
-	
-	
 	// 6. Create another showMessageDialog() method that lets us choose the Message, Title, and Image
 	//    3 String parameters (one for the message, one for the title, and one for the fileName)
+	public static JPanel showMessageDialog(String message, String title, String fileName) {
+		JFrame frame = new JFrame(title);
+		frame.setVisible(true);
+		JPanel panel = new JPanel();
+		JLabel label = new JLabel(message);
+		label.setIcon(new ImageIcon(fileName));
+		frame.add(panel);
+		panel.add(label);
+		frame.pack();
+		frame.setLocationRelativeTo(null);
+		return panel;
+	}
+	
+	public static void showMessageDialog(String message, String title, String fileName, Color color) {
+		JFrame frame = new JFrame(title);
+		JPanel panel = new JPanel();
+		frame.setVisible(true);
+		JLabel label = new JLabel(message);
+		label.setIcon(new ImageIcon(fileName));
+		panel.add(label);
+		frame.add(panel);
+		panel.setBackground(color);
+		frame.pack();
+		frame.setLocationRelativeTo(null);
+	}
 	
 	// 7. Call this method in the Runner class
 	
